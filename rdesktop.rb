@@ -28,11 +28,11 @@ class Rdesktop < Formula
             "--with-openssl=#{Formula["openssl"].opt_prefix}",
             "--x-includes=#{MacOS::X11.include}",
             "--x-libraries=#{MacOS::X11.lib}"]
-    if build.with? "smartcard"
-        args << "--enable-smartcard"
-    else
-        args << "--disable-smartcard"
-    end
+  if build.with? "smartcard"
+    args << "--enable-smartcard"
+  else
+    args << "--disable-smartcard"
+  end
     system "./configure", *args
     system "make", "install"
   end
